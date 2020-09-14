@@ -1,0 +1,90 @@
+apiVersion: dope.mayadata.io/v1
+kind: Recipe
+metadata:
+  name: assert-kube-system-pod-running
+  namespace: d-testing
+  labels:
+    d-testing.dope.mayadata.io/inference: "true"
+spec:
+  tasks:
+
+  # Check aws node pod status
+  - name: assert-running-of-aws-node
+    assert:
+      stateCheck:
+        stateCheckOperator: ListCountEquals
+        count: 3
+      state:
+        kind: Pod
+        apiVersion: v1
+        metadata:
+          namespace: kube-system
+          labels:
+            k8s-app: aws-node
+        status:
+          phase: Running
+    
+  # Check coredns pod status
+  - name: assert-running-of-coredns
+    assert:
+      stateCheck:
+        stateCheckOperator: ListCountEquals
+        count: 2
+      state:
+        kind: Pod
+        apiVersion: v1
+        metadata:
+          namespace: kube-system
+          labels:
+            k8s-app: kube-dns
+        status:
+          phase: Running
+
+  # Check ebs-csi-controller pod status
+  - name: assert-running-of-ebs-csi-controller
+    assert:
+      stateCheck:
+        stateCheckOperator: ListCountEquals
+        count: 2
+      state:
+        kind: Pod
+        apiVersion: v1
+        metadata:
+          namespace: kube-system
+          labels:
+            app: ebs-csi-controller
+        status:
+          phase: Running
+
+  # Check ebs-csi-node pod status
+  - name: assert-running-of-ebs-csi-node
+    assert:
+      stateCheck:
+        stateCheckOperator: ListCountEquals
+        count: 3
+      state:
+        kind: Pod
+        apiVersion: v1
+        metadata:
+          namespace: kube-system
+          labels:
+            app: ebs-csi-node
+        status:
+          phase: Running
+
+  # Check kube-proxy pod status
+  - name: assert-running-of-kube-proxy
+    assert:
+      stateCheck:
+        stateCheckOperator: ListCountEquals
+        count: 3
+      state:
+        kind: Pod
+        apiVersion: v1
+        metadata:
+          namespace: kube-system
+          labels:
+            k8s-app: kube-proxy
+        status:
+          phase: Running
+    

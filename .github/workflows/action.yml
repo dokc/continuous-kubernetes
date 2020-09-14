@@ -1,0 +1,21 @@
+name: Github action to create EKS cluster using eksctl 
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:    
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Run Shellcheck
+      uses: bewuethr/shellcheck-action@v2
+
+    - name: Configure AWS environment variables and start the workflow
+      run: make -k all
+      env:
+        ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        SECRET_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+    
+
+
