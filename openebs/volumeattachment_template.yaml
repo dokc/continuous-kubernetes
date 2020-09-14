@@ -1,0 +1,14 @@
+#This template is used to create block device which will be attached to all the 3 nodes
+--- 
+apiVersion: storage.k8s.io/v1
+kind: VolumeAttachment
+metadata: 
+#volumesattachment name will be set by volumeattachment.sh script
+  name: 
+spec: 
+  attacher: ebs.csi.aws.com
+#Node name will be set by volumeattachment.sh script
+  nodeName: 
+  source: 
+#persistent volume name will be set by volumeattachment.sh script
+    persistentVolumeName: 

@@ -1,0 +1,24 @@
+# This ClusterConfig object create 3 node aws cluster in same az: 
+---
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+metadata:
+#Cluster name      
+  name: dokc-cluster
+#Cluster will be created in ap-south-1 region. This region is selected since it has sufficient resources
+  region: ap-south-1
+
+nodeGroups:
+  - name: dokc-ng
+#Each node will have 4vcpu and 16GB RAM
+    instanceType: t3.xlarge 
+#All 3 nodes will be in ap-south-1a az
+    availabilityZones: ["ap-south-1a"] 
+# No. of nodes
+    desiredCapacity: 3 
+# Os volume size
+    volumeSize: 50 
+    iam:
+      withAddonPolicies:      
+# To give access to CSI driver
+        ebs: true 
