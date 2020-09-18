@@ -27,6 +27,7 @@ kubectl-kudo version
 
 echo -e "\nVerify cert-manager is installed"
 kubectl apply --validate=false -f https://github.com/jetstack/cert-manager/releases/download/v1.0.1/cert-manager.yaml
+sleep 20
 
 #Below yaml is used to check the running status of certmanager pods
 kubectl apply -f ./../experiments/assert-cert-manger-pod.yaml
