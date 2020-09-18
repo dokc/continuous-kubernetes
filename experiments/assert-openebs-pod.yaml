@@ -9,7 +9,7 @@ spec:
   tasks:
 
   # Check maya-apiserver pod status
-  - name: assert-running-of-maya-apiserver
+  - name: assert-if-maya-apiserver-is-running
     assert:
       stateCheck:
         stateCheckOperator: ListCountEquals
@@ -25,7 +25,7 @@ spec:
           phase: Running
     
   # Check openebs-admission-server pod status
-  - name: assert-running-of-openebs-admission-server
+  - name: assert-if-openebs-admission-server-is-running
     assert:
       stateCheck:
         stateCheckOperator: ListCountEquals
@@ -41,7 +41,7 @@ spec:
           phase: Running
 
   # Check openebs-localpv-provisioner pod status
-  - name: assert-running-of-openebs-localpv-provisioner
+  - name: assert-if-openebs-localpv-provisioner-is-running
     assert:
       stateCheck:
         stateCheckOperator: ListCountEquals
@@ -57,7 +57,7 @@ spec:
           phase: Running
 
   # Check openebs-ndm pod status
-  - name: assert-running-of-openebs-ndm
+  - name: assert-if-openebs-ndm-is-running
     assert:
       stateCheck:
         stateCheckOperator: ListCountEquals
@@ -73,7 +73,7 @@ spec:
           phase: Running
 
   # Check openebs-ndm-operator pod status
-  - name: assert-running-of-openebs-ndm-operator
+  - name: assert-if-openebs-ndm-operator-is-running
     assert:
       stateCheck:
         stateCheckOperator: ListCountEquals
@@ -89,7 +89,7 @@ spec:
           phase: Running
     
   # Check openebs-provisioner pod status
-  - name: assert-running-of-openebs-provisioner
+  - name: assert-if-openebs-provisioner-is-running
     assert:
       stateCheck:
         stateCheckOperator: ListCountEquals
@@ -105,7 +105,7 @@ spec:
           phase: Running
 
   # Check openebs-snapshot-operator pod status
-  - name: assert-running-of-openebs-snapshot-operator
+  - name: assert-if-openebs-snapshot-operator-is-running
     assert:
       stateCheck:
         stateCheckOperator: ListCountEquals

@@ -1,0 +1,26 @@
+apiVersion: dope.mayadata.io/v1
+kind: Recipe
+metadata:
+  name: assert-cassandra-pod-running
+  namespace: d-testing
+  labels:
+    d-testing.dope.mayadata.io/cassandra-inference: "true"
+spec:
+  tasks:
+
+  # Check cassandra openebs node pod status
+  - name: assert-if-cassandra-openebs-node-is-running
+    assert:
+      stateCheck:
+        stateCheckOperator: ListCountEquals
+        count: 3
+      state:
+        kind: Pod
+        apiVersion: v1
+        metadata:
+          namespace: cassandra
+          labels:
+            app: cassandra-openebs
+        status:
+          phase: Running
+    

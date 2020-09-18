@@ -1,0 +1,57 @@
+apiVersion: dope.mayadata.io/v1
+kind: Recipe
+metadata:
+  name: assert-cert-manager-pod-running
+  namespace: d-testing
+  labels:
+    d-testing.dope.mayadata.io/certmanager-inference: "true"
+spec:
+  tasks:
+
+  # Check cert manager pod status
+  - name: assert-if-cert-manager-is-running
+    assert:
+      stateCheck:
+        stateCheckOperator: ListCountEquals
+        count: 1
+      state:
+        kind: Pod
+        apiVersion: v1
+        metadata:
+          namespace: cert-manager
+          labels:
+            app: cert-manager
+        status:
+          phase: Running
+    
+  # Check cert manager cainjector pod status
+  - name: assert-if-cert-manager-cainjector-is-running
+    assert:
+      stateCheck:
+        stateCheckOperator: ListCountEquals
+        count: 1
+      state:
+        kind: Pod
+        apiVersion: v1
+        metadata:
+          namespace: cert-manager
+          labels:
+            app: cainjector
+        status:
+          phase: Running
+
+  # Check cert manager webhook pod status
+  - name: assert-if-cert-manager-webhook-is-running
+    assert:
+      stateCheck:
+        stateCheckOperator: ListCountEquals
+        count: 1
+      state:
+        kind: Pod
+        apiVersion: v1
+        metadata:
+          namespace: cert-manager
+          labels:
+            app: webhook
+        status:
+          phase: Running

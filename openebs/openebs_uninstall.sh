@@ -9,6 +9,9 @@ if [[ $CLEAN == true ]]; then
     echo -e "\nDelete volumeattachment"
     kubectl delete -f .tmp/volumeattachment/
 
+    echo -e "\nverify all bd are in unclaim state"
+    kubectl get bd -n openebs
+
     echo -e "\nDelete the block devices"
     kubectl delete bd -n openebs --all
 
