@@ -8,8 +8,8 @@ export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 
 echo -e "\nVerify that go utility had been set"
 echo $GOROOT
-echo $GOPATH
-echo $PATH
+echo "$GOPATH"
+echo "$PATH"
 
 echo -e "\nDownload kudo operator 0.14.0"
 VERSION=0.14.0
