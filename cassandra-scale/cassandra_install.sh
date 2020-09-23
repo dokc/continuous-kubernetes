@@ -10,7 +10,7 @@ kubectl create ns cassandra
 
 echo -e "\nInstall cassandra operator with kudo"
 kubectl kudo install cassandra --namespace=$namespace_name --instance $instance_name -p NODE_STORAGE_CLASS=openebs-device
-sleep 35
+sleep 45
 
 #Below yaml is used to check the running status of cassandra pods
 kubectl apply -f ./../experiments/assert-cassandra-pod.yaml
@@ -50,6 +50,11 @@ kubectl get pod -n cassandra
 
 echo -e "\nVerify cassandra sts status"
 kubectl get sts -n cassandra
+
+echo ""
+echo "--------------------------"
+echo "++ E to E suite passed"
+echo "--------------------------"
 
 
 
