@@ -9,7 +9,7 @@ spec:
   tasks:
 
   # Check aws node pod status
-  - name: assert-running-of-aws-node
+  - name: assert-if-aws-node-is-running
     assert:
       stateCheck:
         stateCheckOperator: ListCountEquals
@@ -25,7 +25,7 @@ spec:
           phase: Running
     
   # Check coredns pod status
-  - name: assert-running-of-coredns
+  - name: assert-if-coredns-is-running
     assert:
       stateCheck:
         stateCheckOperator: ListCountEquals
@@ -41,7 +41,7 @@ spec:
           phase: Running
 
   # Check ebs-csi-controller pod status
-  - name: assert-running-of-ebs-csi-controller
+  - name: assert-if-ebs-csi-controller-is-running
     assert:
       stateCheck:
         stateCheckOperator: ListCountEquals
@@ -57,7 +57,7 @@ spec:
           phase: Running
 
   # Check ebs-csi-node pod status
-  - name: assert-running-of-ebs-csi-node
+  - name: assert-if-ebs-csi-node-is-running
     assert:
       stateCheck:
         stateCheckOperator: ListCountEquals
@@ -73,7 +73,7 @@ spec:
           phase: Running
 
   # Check kube-proxy pod status
-  - name: assert-running-of-kube-proxy
+  - name: assert-if-kube-proxy-is-running
     assert:
       stateCheck:
         stateCheckOperator: ListCountEquals
