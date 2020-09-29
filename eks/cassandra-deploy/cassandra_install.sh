@@ -10,11 +10,11 @@ kubectl create ns cassandra
 
 echo -e "\nInstall cassandra operator with kudo"
 kubectl kudo install cassandra --namespace=$namespace_name --instance $instance_name -p NODE_STORAGE_CLASS=openebs-device
-sleep 45
+sleep 35
 
 #Below yaml is used to check the running status of cassandra pods
-kubectl apply -f ./../experiments/assert-cassandra-pod.yaml
-kubectl apply -f ./../experiments/cassandra-inference.yaml
+kubectl apply -f assert-cassandra-pod.yaml
+kubectl apply -f cassandra-inference.yaml
 
 # group that defines the Recipe custom resource
 group="recipes.dope.mayadata.io"

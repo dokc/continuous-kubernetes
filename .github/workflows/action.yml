@@ -1,5 +1,7 @@
-name: Github action to create EKS cluster using eksctl 
-on: [push]
+name: Github action to create EKS cluster and deploy cassandra sts 
+on: 
+  pull_request:
+    types: [opened, closed, edited]
 jobs:
   build:
     runs-on: ubuntu-latest
