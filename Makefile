@@ -5,13 +5,13 @@ eks-install:
 openebs-install: 
 	@cd eks/openebs && ./openebs_install.sh
 kudo-install: 
-	@cd eks/kudo-operator && ./kudo_install.sh
+	@cd kudo-operator && ./kudo_install.sh
 cassandra-install: 
 	@cd eks/cassandra-deploy && ./cassandra_install.sh
 cassandra-uninstall: 
 	@cd eks/cassandra-deploy && ./cassandra_uninstall.sh
 kudo-uninstall: 
-	@cd eks/kudo-operator && ./kudo_uninstall.sh
+	@cd kudo-operator && ./kudo_uninstall.sh
 openebs-uninstall: 
 	@cd eks/openebs && ./openebs_uninstall.sh
 eks-uninstall: 

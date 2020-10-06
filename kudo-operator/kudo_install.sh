@@ -30,8 +30,8 @@ kubectl apply --validate=false -f https://github.com/jetstack/cert-manager/relea
 sleep 20
 
 #Below yaml is used to check the running status of certmanager pods
-kubectl apply -f ./../experiments/assert-cert-manger-pod.yaml
-kubectl apply -f ./../experiments/cert-manager-inference.yaml
+kubectl apply -f assert-cert-manger-pod.yaml
+kubectl apply -f cert-manager-inference.yaml
 
 # group that defines the Recipe custom resource
 group="recipes.dope.mayadata.io"
@@ -58,7 +58,6 @@ if [[ "$phase" != "Completed" ]]; then
     echo "--------------------------"
     echo -e "\npods are not running: status.phase='$phase'"
     echo "--------------------------"
-    exit 1 # error since inference experiment did not succeed
 fi
 
 echo -e "\ncert-manager pods are running"
