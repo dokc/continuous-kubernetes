@@ -60,7 +60,7 @@ kubectl get pod -n kube-system
 echo -e "\nList of pods in openebs namespace"
 kubectl get po -n openebs
 
-echo -e "\nList of storage class"
+echo -e "\nList of Storage Class"
 kubectl get sc
 
 echo -e "\nCreate volumeattachment directory"
