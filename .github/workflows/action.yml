@@ -1,7 +1,5 @@
 name: Github action to create EKS cluster and deploy Cassandra StatefulSet
-on: 
-  pull_request:
-    types: [opened, closed, edited]
+on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest

@@ -36,5 +36,5 @@ openebs-uninstall(uninstall OpenEBS and delete disks)
 eks-uninstall(Delete EKS cluster)
 	cd eks/eks-setup && ./eks_uninstall.sh
 
-
+Note: All the above scripts are called in a single command `make -k all`
 

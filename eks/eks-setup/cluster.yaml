@@ -14,11 +14,11 @@ nodeGroups:
     instanceType: t3.xlarge 
 #All 3 nodes will be in ap-south-1a az
     availabilityZones: ["ap-south-1a"] 
-# No. of nodes
+#No. of nodes
     desiredCapacity: 3 
-# Os volume size
+#Os volume size
     volumeSize: 50 
     iam:
       withAddonPolicies:      
-# To give access to CSI driver
+#To give access to CSI driver
         ebs: true 
