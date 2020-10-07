@@ -1,4 +1,4 @@
-name: Github action to create EKS cluster using eksctl 
+name: Github action to create EKS cluster and deploy Cassandra StatefulSet
 on: [push]
 jobs:
   build:

@@ -5,13 +5,13 @@ echo -e "\nSet instances and namespace variables"
 export instance_name=cassandra-openebs
 export namespace_name=cassandra
 
-echo -e "\nUninstalling cassandra from cluster"
+echo -e "\nUninstalling Cassandra from cluster"
 kubectl kudo uninstall --namespace=$namespace_name --instance $instance_name
 
-echo -e "\nTo delete cassandra pvc"
+echo -e "\nTo delete Cassandra pvc"
 kubectl delete pvc -n cassandra --all
 
-echo -e "\nDelete cassandra namespace"
+echo -e "\nDelete Cassandra namespace"
 kubectl delete ns cassandra
 
 echo -e "\nCheck the bdc status"

@@ -8,13 +8,14 @@ export namespace_name=cassandra
 echo -e "\nCreate cassandra namespace"
 kubectl create ns cassandra
 
-echo -e "\nInstall cassandra operator with kudo"
+echo -e "\nInstall Cassandra operator with kudo"
 kubectl kudo install cassandra --namespace=$namespace_name --instance $instance_name -p NODE_STORAGE_CLASS=openebs-device
-sleep 45
 
-#Below yaml is used to check the running status of cassandra pods
-kubectl apply -f ./../experiments/assert-cassandra-pod.yaml
-kubectl apply -f ./../experiments/cassandra-inference.yaml
+sleep 60
+
+# Below yaml is used to check the running status of Cassandra pods
+kubectl apply -f assert-cassandra-pod.yaml
+kubectl apply -f cassandra-inference.yaml
 
 # group that defines the Recipe custom resource
 group="recipes.dope.mayadata.io"
@@ -45,10 +46,10 @@ fi
 
 echo -e "\nCassandra pods are running"
 
-echo -e "\nVerify cassandra pod status"
+echo -e "\nVerify Cassandra pod status"
 kubectl get pod -n cassandra
 
-echo -e "\nVerify cassandra sts status"
+echo -e "\nVerify Cassandra sts status"
 kubectl get sts -n cassandra
 
 echo ""

@@ -26,7 +26,7 @@ if [[ $CLEAN == true ]]; then
     
     kubectl delete ns disk
 
-    echo -e "\nDelete storage class"
+    echo -e "\nDelete Storage Class"
     kubectl delete -f storageclass.yaml
 
     echo -e "\nDelete the csi driver"
